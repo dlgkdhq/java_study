@@ -6,6 +6,7 @@ public class Practice23 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
 		//prac1();
 		prac2();
 	}
@@ -125,16 +126,13 @@ public class Practice23 {
 	}
 	public static void prac2() {
 
+		//리팩토링 : 결과의 변경 없이 코드 구조 재조정
+		
 		String[] menuArr = {"아메리카노", "카페라떼", "바닐라라떼"};
 		int[] priceArr = {3500, 4100, 4300};
-
 		int[] countArr = new int[3]; // 0 초기화
 		
 		Scanner scanner = new Scanner(System.in);
-		
-		int menu1Count = 0;		//각 메뉴 몇잔 시켰는지 갯수
-		int menu2Count = 0;
-		int menu3Count = 0;
 
 		while(true) {
 			System.out.println("========= 메뉴 =========");
@@ -155,12 +153,11 @@ public class Practice23 {
 			int count = scanner.nextInt();
 
 			//무슨 메뉴를 몇잔 시켰나?
-			if(menu==1)
-				menu1Count += count;
-			else if(menu == 2)
-				menu2Count += count;
-			else
-				menu3Count += count;
+			//무슨 메뉴? -> menu 1 2 3 -> menuArr[0 1 2]
+			//몇 잔? -> count
+			//countArr 접근하는 index : menu - 1
+			
+			countArr[menu-1] += count; 	//모든 메뉴에 대해 수량 처리하는 코드가 공통으로 적용됨
 
 			scanner.nextLine();		//clear
 
@@ -182,25 +179,18 @@ public class Practice23 {
 				//최종 주문 메뉴 목록, 총 금액
 				int total = 0;
 				System.out.println("=======================");
-				if(menu1Count>0) {
-					System.out.printf(menuArr[0] + " %d잔 : %d원\n", menu1Count, menu1Count*3500);
-					total = total + menu1Count*3500;
-				}
-				if(menu2Count>0) {
-					System.out.printf(menuArr[1] + " %d잔 : %d원\n", menu2Count, menu2Count*4100);
-					total = total + menu2Count*4100;
-				}
-				if(menu3Count>0) {
-					System.out.printf(menuArr[2] + " %d원\n", menu3Count, menu3Count*4300);
-					total = total + menu3Count*4300;
+				
+				for(int i=0; i<menuArr.length; i++) {
+					if(countArr[i]>0) {
+						System.out.printf(menuArr[i] + " %d잔 : %d원\n", countArr[i], countArr[i]*priceArr[i]);
+						total = total + countArr[i]*priceArr[i];
+					}
 				}
 				System.out.println("=======================");
-				//System.out.printf("총액 : %d원", menu1Count*3500+menu2Count*4100+menu3Count*4300);
 				System.out.printf("총액 : %d원", total);
 				break;
 			}
-
-
+			
 		}
 	}
 }
