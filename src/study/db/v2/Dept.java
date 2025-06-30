@@ -3,7 +3,7 @@ package study.db.v2;
 //DB 테이블에서 읽어온 데이터를 저장하는 역할
 //DTO (Data Transfer Object) 데이터 전달할 때 사용할 객체
 public class Dept {	//DeptDTO
-	
+
 	int deptno;
 	String dname;
 	String loc;
@@ -39,6 +39,10 @@ public class Dept {	//DeptDTO
 	public void setLoc(String loc) {
 		this.loc = loc;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Dept [deptno=" + deptno + ", dname=" + dname + ", loc=" + loc + "]";
+	}
 	
 }
