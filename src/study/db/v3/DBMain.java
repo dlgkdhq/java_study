@@ -1,5 +1,6 @@
 package study.db.v3;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import study.db.v2.Dept;
@@ -59,7 +60,24 @@ public class DBMain {
 			System.out.println("수정 잘 됨!");
 		}
 		
+		ProfessorDAO professorDAO = new ProfessorDAO();
 		
+		Professor p = professorDAO.findProfessorByProfno(2002);
+		if(p != null) {
+			System.out.println(p);
+		}
+		
+//		Professor saveP = new Professor(9091, "name", "id", "position", 111, LocalDateTime.now(),
+//										100, 50, "email", "hpage");
+		
+		Professor saveP = new Professor(9991, "name", "id", "position", 111, "2025-06-01",
+										100, 50, "email", "hpage");
+				
+		int rs5 = professorDAO.saveProfessor(saveP);
+		if(rs5 > 0) {
+			System.out.println("saveP 잘 저장됨!");
+		}
+									
 		
 	}
 
