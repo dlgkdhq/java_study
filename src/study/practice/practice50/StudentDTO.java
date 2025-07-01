@@ -15,8 +15,10 @@ public class StudentDTO {
 	String tel;
 	int height;
 	int weight;
-	int deptno1;
-	int deptno2;
+	int deptno1;	// 기본값 0 무조건 숫자이고 값을 가진다면 int 선언
+	//int deptno2;	// 기본값 null, nullable 이라 값이 null일 수도 있다
+	Integer deptno2;
+	//Integer -> int 타입의 Wrapper 클래스
 	int profno;
 	
 	
@@ -80,10 +82,10 @@ public class StudentDTO {
 	public void setDeptno1(int deptno1) {
 		this.deptno1 = deptno1;
 	}
-	public int getDeptno2() {
+	public Integer getDeptno2() {
 		return deptno2;
 	}
-	public void setDeptno2(int deptno2) {
+	public void setDeptno2(Integer deptno2) {
 		this.deptno2 = deptno2;
 	}
 	public int getProfno() {
