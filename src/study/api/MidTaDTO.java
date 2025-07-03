@@ -5,6 +5,7 @@ public class MidTaDTO {
 	String resultCode;
 	String resultMsg;
 	
+	String tmFC;
 	String regId;
 	int taMin4;
 	int taMax4;
@@ -52,6 +53,18 @@ public class MidTaDTO {
 	}
 	public void setTaMax5(int taMax5) {
 		this.taMax5 = taMax5;
+	}
+	public String getTmFC() {
+		return tmFC;
+	}
+	public void setTmFC(String tmFC) {
+		this.tmFC = tmFC;
+	}
+	
+	@Override
+	public String toString() {
+		return "MidTaDTO [resultCode=" + resultCode + ", resultMsg=" + resultMsg + ", tmFC=" + tmFC + ", regId=" + regId
+				+ ", taMin4=" + taMin4 + ", taMax4=" + taMax4 + ", taMin5=" + taMin5 + ", taMax5=" + taMax5 + "]";
 	}
 	
 	
