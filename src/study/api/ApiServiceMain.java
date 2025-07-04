@@ -8,10 +8,11 @@ public class ApiServiceMain {
 		// 공공데이터 API 와 데이터 통신하는 객체
 		MidFcstInfoService mService = new MidFcstInfoService();	 //DAO 쓰듯이
 		
+		/*
 		// API service를 통해서 데이터를 획득, 그 데이터가 DTO에 담겨있음
 		//MidTaDTO mtDTO = mService.findMidTa("202507030600", "11C20301"); //천안
 		//MidTaDTO mtDTO = mService.findMidTa("202507030600", "11B10101"); //서울
-		MidTaDTO mtDTO = mService.findMidTa("202507030600", "11B20201"); //인천
+		//MidTaDTO mtDTO = mService.findMidTa("202507030600", "11B20201"); //인천
 		
 		System.out.println(mtDTO);
 		
@@ -22,6 +23,21 @@ public class ApiServiceMain {
 		if(result > 0) {
 			System.out.println("저장 성공~");
 		}
+		*/
+		
+		//미세먼지
+		ArpltnInfoService aService = new ArpltnInfoService();
+		MinuDustWeekDTO mdwDTO = aService.getMinuDustWeek();
+		
+		System.out.println(mdwDTO);
+		
+		// ArpltnDAO
+		ArpltnDAO arpltnDAO = new ArpltnDAO();
+		int result = arpltnDAO.saveMinuDustWeek(mdwDTO);
+		if(result > 0) {
+			System.out.println("저장 성공~");
+		}
+		
 	}
 
 }
